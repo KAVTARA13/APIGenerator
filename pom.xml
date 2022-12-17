@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>Hackathon</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.14</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vlkan.hrrs</groupId>
+            <artifactId>hrrs-servlet-filter-base64</artifactId>
+            <version>LATEST</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.0.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.undertow/undertow-core -->
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-core</artifactId>
+            <version>2.3.2.Final</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.vertx.ceylon/platform -->
+        <dependency>
+            <groupId>org.apache.james.protocols</groupId>
+            <artifactId>protocols-api</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
+
+
+        <dependency>
+            <groupId>net.lightbody.bmp</groupId>
+            <artifactId>browsermob-core</artifactId>
+            <version>2.1.5</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.3.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.7.2</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>6.0.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/co.elastic.apm/apm-agent-api -->
+        <dependency>
+            <groupId>co.elastic.apm</groupId>
+            <artifactId>apm-agent-api</artifactId>
+            <version>1.35.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.6.1</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-java-commons -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>2.20.1</version>
+        </dependency>
+
+
+    </dependencies>
+
+
+</project>
