@@ -1,10 +1,9 @@
+import java.lang.reflect.Proxy;
 import java.nio.charset.Charset;
 import java.util.Date;
 
-import org.littleshoot.proxy.HttpFilters;
-import org.littleshoot.proxy.HttpFiltersAdapter;
-import org.littleshoot.proxy.HttpFiltersSource;
-import org.littleshoot.proxy.HttpFiltersSourceAdapter;
+import io.netty.channel.ChannelHandlerContext;
+import org.littleshoot.proxy.*;
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer;
 import org.littleshoot.proxy.impl.ProxyUtils;
 
@@ -19,7 +18,7 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
 
 /**
- * Blocks access to URLs ending in "png" or "jpeg" and returns a 502 response. 
+ * Blocks access to URLs ending in "png" or "jpeg" and returns a 502 response.
  *
  * Test URLs - HTTP  : http://httpbin.org/image/png
  *             HTTPS : https://httpbin.org/image/png
@@ -32,7 +31,7 @@ public class BlockingFilterProxy {
 
         HttpFiltersSource filtersSource = getFiltersSource();
 
-        DefaultHttpProxyServer.bootstrap()
+        HttpProxyServer server =DefaultHttpProxyServer.bootstrap()
                 .withPort(PORT)
                 .withAllowLocalOnly(false)
                 .withFiltersSource(filtersSource)

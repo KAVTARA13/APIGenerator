@@ -59,6 +59,21 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.3.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.browserup</groupId>
+            <artifactId>browserup-proxy-core</artifactId>
+            <version>LATEST</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/be.c4j.ee.security.octopus/octopus-core -->
+        <!-- https://mvnrepository.com/artifact/be.c4j.ee.security.octopus/octopus-core -->
+        <!-- https://mvnrepository.com/artifact/be.atbash.ee.security/octopus-core -->
+        <dependency>
+            <groupId>be.atbash.ee.security</groupId>
+            <artifactId>octopus-core</artifactId>
+            <version>0.6</version>
+        </dependency>
+
+
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
@@ -66,6 +81,30 @@
             <artifactId>selenium-java</artifactId>
             <version>4.7.2</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
 
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
