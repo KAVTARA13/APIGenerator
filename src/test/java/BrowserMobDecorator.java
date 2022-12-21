@@ -35,19 +35,21 @@ public class BrowserMobDecorator {
     public static void main(String[] args) {
         proxy = new BrowserMobProxyServer();
         proxy.setTrustAllServers(true);
-        proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
+
+        proxy.enableHarCaptureTypes(CaptureType.RESPONSE_BINARY_CONTENT,CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
         proxy.start(44);
         System.out.println(proxy.getPort());
         System.out.println(proxy.getClientBindAddress().getHostName());
+
         try {
-            proxy.newHar();
+            proxy.newHar("req","options={'captureHeaders': True,'captureContent':True}");
+//            proxy.newHar();
             try {
-                Thread.sleep(10000);
+                Thread.sleep(8000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             Har har = proxy.getHar();
-            System.out.println(har.getLog().toString());
             File harFile = new File("aaa.har");
             har.writeTo(harFile);
         } catch (IOException ioe) {
