@@ -1,5 +1,7 @@
 //import com.octopus.AutomatedBrowser;
 //import com.octopus.decoratorbase.AutomatedBrowserBase;
+import be.atbash.json.JSONObject;
+import com.google.common.base.Utf8;
 import de.sstoehr.harreader.HarReaderException;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.HttpRequest;
@@ -15,8 +17,11 @@ import org.littleshoot.proxy.HttpFilters;
 import org.littleshoot.proxy.HttpFiltersSource;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 public class BrowserMob {
@@ -52,7 +57,9 @@ public class BrowserMob {
                     System.out.println("headers: "+Arrays.toString(httpResponse.headers().entries().toArray()));
                     System.out.println("getStatus: "+httpResponse.getStatus());
                     System.out.println("result: "+httpResponse.getDecoderResult().toString());
+                    System.out.println("body: "+httpMessageContents.getCharset().toString());
                     System.out.println(httpMessageContents.getTextContents());
+                    URL[0]="";
                 }
             }
         });
