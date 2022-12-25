@@ -1,6 +1,5 @@
 //import com.octopus.AutomatedBrowser;
 //import com.octopus.decoratorbase.AutomatedBrowserBase;
-import be.atbash.json.JSONObject;
 import com.google.common.base.Utf8;
 import de.sstoehr.harreader.HarReaderException;
 import io.netty.channel.ChannelHandlerContext;
@@ -13,6 +12,8 @@ import net.lightbody.bmp.filters.ResponseFilter;
 import net.lightbody.bmp.proxy.CaptureType;
 import net.lightbody.bmp.util.HttpMessageContents;
 import net.lightbody.bmp.util.HttpMessageInfo;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.littleshoot.proxy.HttpFilters;
 import org.littleshoot.proxy.HttpFiltersSource;
 
@@ -28,6 +29,7 @@ public class BrowserMob {
     public static BrowserMobProxyServer proxy;
     public static void main(String[] args) {
         final String[] URL = {""};
+        final String[] path = {""};
         proxy = new BrowserMobProxyServer();
         proxy.setTrustAllServers(true);
         proxy.setHarCaptureTypes(CaptureType.getAllContentCaptureTypes());
@@ -39,11 +41,17 @@ public class BrowserMob {
                     if (httpRequest.getMethod().toString().equals("CONNECT")){
                         URL[0] = httpRequest.getUri().split(":")[0];
                     }else if(!URL[0].equals("")){
+                        path[0] =httpRequest.getUri();
                         System.out.println("URI: "+URL[0]+httpRequest.getUri());
                         System.out.println("headers: "+Arrays.toString(httpRequest.headers().entries().toArray()));
                         System.out.println("result: "+httpRequest.getDecoderResult().toString());
                         System.out.println("method: "+httpRequest.getMethod().toString());
                         System.out.println(httpMessageContents.getTextContents());
+                        try {
+                            createClassByRequest(httpMessageContents.getTextContents(),path[0],"",true);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                 }
                 return null;
@@ -59,10 +67,41 @@ public class BrowserMob {
                     System.out.println("result: "+httpResponse.getDecoderResult().toString());
                     System.out.println("body: "+httpMessageContents.getCharset().toString());
                     System.out.println(httpMessageContents.getTextContents());
+                    try {
+                        createClassByRequest(httpMessageContents.getTextContents(),path[0],"",false);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     URL[0]="";
+                    path[0]="";
                 }
             }
         });
         proxy.start(44);
     }
+
+    static void createClassByRequest(String content,String path,String result,boolean request) throws IOException {
+        String className=path.split("/")[path.split("/").length - 1].toUpperCase();
+        StringBuilder classText= new StringBuilder("import lombok.Getter;\n" +
+                "import lombok.Setter;\n" +
+                "@Getter\n" +
+                "@Setter\n" +
+                "public class " +( request?className + "Request {\n":className + "Response {\n"));
+
+        org.json.JSONObject jsonObject = new JSONObject(content);
+        JSONArray array = jsonObject.names();
+        for (Object i:array){
+            System.out.println(i.toString());
+            Object aObj = jsonObject.get(i.toString());
+            if (aObj instanceof Integer) {
+                classText.append("public int ").append(i.toString()).append(";\n");
+            }if (aObj instanceof String) {
+                classText.append("public String ").append(i.toString()).append(";\n");
+            }
+        }
+        classText.append("}");
+        FileWriter myWriter = new FileWriter("src/test/java/"+(request?className+ "Request":className+ "Response")+".java");
+        myWriter.write(String.valueOf(classText));
+        myWriter.close();
+    };
 }
