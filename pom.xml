@@ -16,80 +16,16 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.14</version>
-        </dependency>
-        <dependency>
-            <groupId>com.vlkan.hrrs</groupId>
-            <artifactId>hrrs-servlet-filter-base64</artifactId>
-            <version>LATEST</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>6.0.3</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.undertow/undertow-core -->
-        <dependency>
-            <groupId>io.undertow</groupId>
-            <artifactId>undertow-core</artifactId>
-            <version>2.3.2.Final</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.vertx.ceylon/platform -->
-        <dependency>
-            <groupId>org.apache.james.protocols</groupId>
-            <artifactId>protocols-api</artifactId>
-            <version>1.6.3</version>
-        </dependency>
-        <!-- Thanks for using https://jar-download.com -->
-
-
-        <dependency>
             <groupId>net.lightbody.bmp</groupId>
             <artifactId>browsermob-core</artifactId>
             <version>2.1.5</version>
             <scope>test</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>5.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.browserup</groupId>
-            <artifactId>browserup-proxy-core</artifactId>
-            <version>LATEST</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/be.c4j.ee.security.octopus/octopus-core -->
-        <!-- https://mvnrepository.com/artifact/be.c4j.ee.security.octopus/octopus-core -->
-        <!-- https://mvnrepository.com/artifact/be.atbash.ee.security/octopus-core -->
-        <dependency>
-            <groupId>be.atbash.ee.security</groupId>
-            <artifactId>octopus-core</artifactId>
-            <version>0.6</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20220924</version>
-        </dependency>
-
-        <dependency>
-            <groupId>de.sstoehr</groupId>
-            <artifactId>har-reader</artifactId>
-            <version>2.2.1</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.7.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
@@ -98,55 +34,5 @@
             <version>1.18.24</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.9.1</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
-
-
-
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>6.0.3</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/co.elastic.apm/apm-agent-api -->
-        <dependency>
-            <groupId>co.elastic.apm</groupId>
-            <artifactId>apm-agent-api</artifactId>
-            <version>1.35.0</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.6.1</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-java-commons -->
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-java-commons</artifactId>
-            <version>2.20.1</version>
-        </dependency>
-
-
     </dependencies>
-
-
 </project>
